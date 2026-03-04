@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Temas IB - Oral</title>
+    <title>Generador de Temas IB</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="main-container">
+    <div class="wrapper">
         <div id="theme-badge" class="badge">IB Spanish Ab Initio</div>
 
-        <div class="content-card">
-            <h1 id="question-text">Haz clic en el botón para generar una pregunta de práctica</h1>
-            <p id="grammar-tip">Selecciona un tema específico o practica con todos.</p>
+        <div class="main-card">
+            <h1 id="question-text">¿Qué vas a practicar hoy?</h1>
+            <p id="grammar-tip">Selecciona un tema y pulsa el botón para empezar.</p>
         </div>
 
-        <div class="controls">
-            <div class="filter-group">
-                <label for="topic-select">Tema:</label>
+        <div class="controls-panel">
+            <div class="select-container">
+                <label for="topic-select">Tema de examen:</label>
                 <select id="topic-select">
-                    <option value="Todos">Cualquier tema</option>
+                    <option value="Todos">Todos los temas</option>
                     <option value="Identidades">Identidades</option>
                     <option value="Experiencias">Experiencias</option>
                     <option value="Ingenio Humano">Ingenio Humano</option>
@@ -31,9 +31,9 @@
             
             <button id="generate-btn">Generar nuevo tema</button>
         </div>
-        
-        <footer class="footer">
-            Material de preparación para el examen oral IB
+
+        <footer class="site-footer">
+            Herramienta de práctica para Evaluación Oral Individual
         </footer>
     </div>
 
