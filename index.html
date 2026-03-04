@@ -3,40 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Temas IB</title>
+    <title>Generador IB - Oral</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="wrapper">
-        <div id="theme-badge" class="badge">IB Spanish Ab Initio</div>
+        <div class="timer-section">
+            <div id="timer-display">01:00</div>
+            <div class="timer-controls">
+                <button id="start-stop-timer">Pausar</button>
+                <button id="reset-timer">Reiniciar</button>
+            </div>
+        </div>
+
+        <div id="theme-badge" class="badge">Selecciona un tema</div>
 
         <div class="main-card">
-            <h1 id="question-text">¿Qué vas a practicar hoy?</h1>
-            <p id="grammar-tip">Selecciona un tema y pulsa el botón para empezar.</p>
+            <h2 id="subtopic-badge">Subtema</h2>
+            <h1 id="question-text">¿Listo para practicar?</h1>
         </div>
 
         <div class="controls-panel">
             <div class="select-container">
-                <label for="topic-select">Tema de examen:</label>
+                <label for="topic-select">Tema:</label>
                 <select id="topic-select">
                     <option value="Todos">Todos los temas</option>
                     <option value="Identidades">Identidades</option>
                     <option value="Experiencias">Experiencias</option>
-                    <option value="Ingenio Humano">Ingenio Humano</option>
-                    <option value="Organización Social">Organización Social</option>
-                    <option value="Compartir el Planeta">Compartir el Planeta</option>
+                    <option value="Ingenio humano">Ingenio humano</option>
+                    <option value="Organización social">Organización social</option>
+                    <option value="Cómo compartimos el planeta">Cómo compartimos el planeta</option>
                 </select>
             </div>
-            
-            <button id="generate-btn">Generar nuevo tema</button>
+            <button id="generate-btn">Generar nueva pregunta</button>
         </div>
-
-        <footer class="site-footer">
-            Herramienta de práctica para Evaluación Oral Individual
-        </footer>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
