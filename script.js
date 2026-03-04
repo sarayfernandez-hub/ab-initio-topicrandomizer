@@ -116,40 +116,38 @@ const questionTxt = document.getElementById('question-text');
 const grammarTip = document.getElementById('grammar-tip');
 const topicSelect = document.getElementById('topic-select');
 
-// Diccionario de colores pasteles para el badge
-const coloresPasteles = {
-    "Identidades": "#f8d7da",
-    "Experiencias": "#d1ecf1",
-    "Ingenio Humano": "#d4edda",
-    "Organización Social": "#fff3cd",
-    "Compartir el Planeta": "#e2e3e5"
+// Colores suaves para identificar temas
+const colors = {
+    "Identidades": "#fee2e2",
+    "Experiencias": "#e0f2fe",
+    "Ingenio Humano": "#dcfce7",
+    "Organización Social": "#fef9c3",
+    "Compartir el Planeta": "#f3f4f6"
 };
 
 btn.addEventListener('click', () => {
-    const seleccion = topicSelect.value;
-    let preguntasFiltradas;
-
-    if (seleccion === "Todos") {
-        preguntasFiltradas = ibData;
-    } else {
-        preguntasFiltradas = ibData.filter(item => item.tema === seleccion);
-    }
-
-    if (preguntasFiltradas.length > 0) {
-        const randomIdx = Math.floor(Math.random() * preguntasFiltradas.length);
-        const item = preguntasFiltradas[randomIdx];
-
-        // 1. Actualizar textos
-        themeBadge.innerText = item.tema;
-        questionTxt.innerText = item.pregunta;
-        grammarTip.innerText = "Tip: " + item.tip;
+    const selected = topicSelect.value;
+    const filtered = selected === "Todos" ? ibData : ibData.filter(i => i.tema === selected);
+    
+    if (filtered.length > 0) {
+        const item = filtered[Math.floor(Math.random() * filtered.length)];
         
-        // 2. Ajuste de colores dinámicos (Pasteles)
-        themeBadge.style.backgroundColor = coloresPasteles[item.tema] || "#e9ecef";
-        themeBadge.style.color = "#495057"; // Texto gris oscuro siempre legible
+        // Animación de salida
+        questionTxt.style.opacity = "0";
+        questionTxt.style.transform = "translateY(10px)";
         
-        // 3. Pequeño efecto visual
-        questionTxt.style.opacity = 0;
-        setTimeout(() => { questionTxt.style.opacity = 1; }, 50);
+        setTimeout(() => {
+            themeBadge.innerText = item.tema;
+            themeBadge.style.backgroundColor = colors[item.tema] || "#f3f4f6";
+            questionTxt.innerText = item.pregunta;
+            grammarTip.innerText = "Tip: " + item.tip;
+            
+            // Animación de entrada
+            questionTxt.style.opacity = "1";
+            questionTxt.style.transform = "translateY(0)";
+        }, 150);
     }
 });
+
+// Estilo inicial para la animación
+questionTxt.style.transition = "all 0.2s ease";
