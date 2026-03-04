@@ -1,5 +1,5 @@
 const ibData = [
-    // --- TEMA 1: IDENTIDADES (20) ---
+    // --- TEMA 1: IDENTIDADES ---
     { tema: "Identidades", pregunta: "¿Cómo te describirías físicamente y tu personalidad?", tip: "Usa el verbo SER y adjetivos descriptivos." },
     { tema: "Identidades", pregunta: "¿Qué ropa prefieres llevar los fines de semana?", tip: "Vocabulario de colores y materiales." },
     { tema: "Identidades", pregunta: "¿Cuál es tu plato favorito y qué ingredientes lleva?", tip: "Usa el presente y conectores de secuencia." },
@@ -21,7 +21,7 @@ const ibData = [
     { tema: "Identidades", pregunta: "¿Cuál es la cualidad más importante de un amigo?", tip: "Usa adjetivos de personalidad." },
     { tema: "Identidades", pregunta: "¿Qué hiciste la semana pasada para relajarte?", tip: "Pretérito indefinido." },
 
-    // --- TEMA 2: EXPERIENCIAS (20) ---
+    // --- TEMA 2: EXPERIENCIAS ---
     { tema: "Experiencias", pregunta: "¿Cómo es tu rutina diaria durante la semana escolar?", tip: "Usa conectores de tiempo." },
     { tema: "Experiencias", pregunta: "¿Qué actividades de ocio prefieres hacer con tus amigos?", tip: "Verbos de gusto y preferencia." },
     { tema: "Experiencias", pregunta: "¿Adónde fuiste de vacaciones el verano pasado?", tip: "Usa el Pretérito Indefinido." },
@@ -43,7 +43,7 @@ const ibData = [
     { tema: "Experiencias", pregunta: "¿Te gusta ir al cine o prefieres ver películas en casa?", tip: "Argumenta tu elección." },
     { tema: "Experiencias", pregunta: "¿Qué hiciste ayer después de las clases?", tip: "Usa marcadores temporales." },
 
-    // --- TEMA 3: INGENIO HUMANO (20) ---
+    // --- TEMA 3: INGENIO HUMANO ---
     { tema: "Ingenio Humano", pregunta: "¿Cuál es tu red social favorita y por qué?", tip: "Usa 'porque' y 'ya que'." },
     { tema: "Ingenio Humano", pregunta: "¿Crees que los jóvenes pasan demasiado tiempo con el móvil?", tip: "Usa expresiones de duda o certeza." },
     { tema: "Ingenio Humano", pregunta: "¿Para qué utilizaste internet ayer?", tip: "Usa 'para' + infinitivo." },
@@ -65,7 +65,7 @@ const ibData = [
     { tema: "Ingenio Humano", pregunta: "¿Podrías vivir una semana sin conexión a internet?", tip: "Condicional o hipótesis." },
     { tema: "Ingenio Humano", pregunta: "¿Cuál es tu aplicación más útil para estudiar español?", tip: "Habla de recursos educativos." },
 
-    // --- TEMA 4: ORGANIZACIÓN SOCIAL (20) ---
+    // --- TEMA 4: ORGANIZACIÓN SOCIAL ---
     { tema: "Organización Social", pregunta: "¿Cómo es tu instituto? Describe las instalaciones.", tip: "Usa 'hay' y 'está'." },
     { tema: "Organización Social", pregunta: "¿Qué asignaturas estudias para el diploma del IB?", tip: "Vocabulario académico." },
     { tema: "Organización Social", pregunta: "¿Qué carrera vas a estudiar en la universidad?", tip: "Futuro profesional." },
@@ -87,7 +87,7 @@ const ibData = [
     { tema: "Organización Social", pregunta: "¿Qué tipo de trabajo te gustaría tener de mayor?", tip: "Vocabulario de profesiones." },
     { tema: "Organización Social", pregunta: "¿Hay muchas zonas verdes o parques en tu ciudad?", tip: "Usa 'hay' y 'muchos/as'." },
 
-    // --- TEMA 5: COMPARTIR EL PLANETA (20) ---
+    // --- TEMA 5: COMPARTIR EL PLANETA ---
     { tema: "Compartir el Planeta", pregunta: "¿Qué tiempo hace hoy en tu ciudad?", tip: "Vocabulario meteorológico." },
     { tema: "Compartir el Planeta", pregunta: "¿Qué haces en casa para reciclar y ahorrar energía?", tip: "Usa el presente habitual." },
     { tema: "Compartir el Planeta", pregunta: "¿Cuál es el problema medioambiental que más te preocupa?", tip: "Usa 'me preocupa'." },
@@ -110,12 +110,20 @@ const ibData = [
     { tema: "Compartir el Planeta", pregunta: "¿Qué compraste ayer que sea respetuoso con el medio ambiente?", tip: "Habla de consumo responsable." }
 ];
 
-// Lógica de la aplicación
 const btn = document.getElementById('generate-btn');
 const themeBadge = document.getElementById('theme-badge');
 const questionTxt = document.getElementById('question-text');
 const grammarTip = document.getElementById('grammar-tip');
 const topicSelect = document.getElementById('topic-select');
+
+// Diccionario de colores pasteles para el badge
+const coloresPasteles = {
+    "Identidades": "#f8d7da",
+    "Experiencias": "#d1ecf1",
+    "Ingenio Humano": "#d4edda",
+    "Organización Social": "#fff3cd",
+    "Compartir el Planeta": "#e2e3e5"
+};
 
 btn.addEventListener('click', () => {
     const seleccion = topicSelect.value;
@@ -131,12 +139,16 @@ btn.addEventListener('click', () => {
         const randomIdx = Math.floor(Math.random() * preguntasFiltradas.length);
         const item = preguntasFiltradas[randomIdx];
 
-        // Actualizar pantalla
+        // 1. Actualizar textos
         themeBadge.innerText = item.tema;
         questionTxt.innerText = item.pregunta;
         grammarTip.innerText = "Tip: " + item.tip;
         
-        // Animación simple de cambio
+        // 2. Ajuste de colores dinámicos (Pasteles)
+        themeBadge.style.backgroundColor = coloresPasteles[item.tema] || "#e9ecef";
+        themeBadge.style.color = "#495057"; // Texto gris oscuro siempre legible
+        
+        // 3. Pequeño efecto visual
         questionTxt.style.opacity = 0;
         setTimeout(() => { questionTxt.style.opacity = 1; }, 50);
     }

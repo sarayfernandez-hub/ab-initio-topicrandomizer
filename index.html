@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador IB Ab Initio</title>
+    <title>Generador de Temas IB - Oral</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="card">
-        <h1>Prep. Oral IB Ab Initio</h1>
-        
-        <div class="filter-section">
-            <label for="topic-select">Elige un tema:</label>
-            <select id="topic-select">
-                <option value="Todos">Todos los temas</option>
-                <option value="Identidades">Identidades</option>
-                <option value="Experiencias">Experiencias</option>
-                <option value="Ingenio Humano">Ingenio Humano</option>
-                <option value="Organización Social">Organización Social</option>
-                <option value="Compartir el Planeta">Compartir el Planeta</option>
-            </select>
+    <div class="main-container">
+        <div id="theme-badge" class="badge">IB Spanish Ab Initio</div>
+
+        <div class="content-card">
+            <h1 id="question-text">Haz clic en el botón para generar una pregunta de práctica</h1>
+            <p id="grammar-tip">Selecciona un tema específico o practica con todos.</p>
         </div>
 
-        <div id="content-area">
-            <div id="theme-badge">¡Empecemos!</div>
-            <h2 id="question-text">Selecciona un tema y pulsa el botón</h2>
-            <p id="grammar-tip">Prepárate para el examen oral.</p>
+        <div class="controls">
+            <div class="filter-group">
+                <label for="topic-select">Tema:</label>
+                <select id="topic-select">
+                    <option value="Todos">Cualquier tema</option>
+                    <option value="Identidades">Identidades</option>
+                    <option value="Experiencias">Experiencias</option>
+                    <option value="Ingenio Humano">Ingenio Humano</option>
+                    <option value="Organización Social">Organización Social</option>
+                    <option value="Compartir el Planeta">Compartir el Planeta</option>
+                </select>
+            </div>
+            
+            <button id="generate-btn">Generar nuevo tema</button>
         </div>
         
-        <button id="generate-btn">Generar Pregunta</button>
+        <footer class="footer">
+            Material de preparación para el examen oral IB
+        </footer>
     </div>
 
     <script src="script.js"></script>
