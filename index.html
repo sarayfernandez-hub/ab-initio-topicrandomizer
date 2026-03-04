@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador IB - Oral</title>
+    <title>Generador Oral IB</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,18 +16,19 @@
             </div>
         </div>
 
-        <div id="theme-badge" class="badge">Selecciona un tema</div>
+        <div id="theme-badge" class="badge">IB Spanish Ab Initio</div>
 
         <div class="main-card">
             <h2 id="subtopic-badge">Subtema</h2>
-            <h1 id="question-text">¿Listo para practicar?</h1>
+            <h1 id="question-text">Pulsa el botón para empezar</h1>
+            <p id="grammar-tip">Aquí aparecerá un consejo gramatical para ayudarte.</p>
         </div>
 
         <div class="controls-panel">
             <div class="select-container">
-                <label for="topic-select">Tema:</label>
+                <label for="topic-select">Área temática:</label>
                 <select id="topic-select">
-                    <option value="Todos">Todos los temas</option>
+                    <option value="Todos">Todas las áreas</option>
                     <option value="Identidades">Identidades</option>
                     <option value="Experiencias">Experiencias</option>
                     <option value="Ingenio humano">Ingenio humano</option>
@@ -35,8 +36,9 @@
                     <option value="Cómo compartimos el planeta">Cómo compartimos el planeta</option>
                 </select>
             </div>
-            <button id="generate-btn">Generar nueva pregunta</button>
+            <button id="generate-btn">Generar pregunta</button>
         </div>
+        <footer class="site-footer">Preguntas del programa oficial</footer>
     </div>
     <script src="script.js"></script>
 </body>
